@@ -15,6 +15,11 @@ is required to start a new project with the most common (and latest stable) libr
 - [Proto DataStore](https://developer.android.com/topic/libraries/architecture/datastore)
 - [OkHttp](https://square.github.io/okhttp/)
 - [Timber Logging](https://github.com/JakeWharton/timber)
+- [Moshi](https://github.com/square/moshi)
+- [Coil](https://coil-kt.github.io/coil/)
+- [Accompanist](https://google.github.io/accompanist/)
+- [Google Fonts](https://fonts.google.com/)
+- [Material3 Theming](https://material.io/design/material3)
 - [Truth Assertion Library](https://truth.dev/)
 
 ## How to use this project

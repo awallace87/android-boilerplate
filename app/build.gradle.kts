@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "work.wander.example"
-        minSdk = 30
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -53,6 +53,7 @@ android {
         }
     }
     kapt {
+        //TODO: Remove this once https://issuetracker.google.com/issues/202825622 is fixed
         generateStubs = true
         correctErrorTypes = true
     }
@@ -106,6 +107,26 @@ dependencies {
     implementation(libs.okhttp.core)
     implementation(libs.okhttp.logging)
     testImplementation(libs.okhttp.mockwebserver)
+
+    // Moshi
+    implementation(libs.moshi.core)
+    implementation(libs.moshi.kotlin)
+
+    // Picasso
+    implementation(libs.picasso)
+
+    // Coil
+    implementation(libs.coil.core)
+    implementation(libs.coil.compose)
+
+    // Google Fonts
+    implementation(libs.androidx.ui.text.google.fonts)
+
+    // Accompanist
+    implementation(libs.accompanist.permissions)
+
+    // Material Extended Icons
+    implementation(libs.material.icons.extended)
 
     // Testing Core
     testImplementation(libs.junit)

@@ -1,7 +1,6 @@
 package work.wander.example.ui.demo
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -15,7 +14,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
@@ -28,7 +26,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SmallTopAppBar
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -48,9 +45,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import work.wander.example.data.roomdemo.entity.DemoEntity
-import work.wander.example.ui.theme.ExampleTheme
+import work.wander.example.ui.theme.AppTheme
 import java.text.SimpleDateFormat
-import java.time.Instant
 import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -290,7 +286,7 @@ fun RoomDemoDataRow(
 @Preview
 @Composable
 private fun RoomDemoViewPreview() {
-    ExampleTheme {
+    AppTheme {
         RoomDemoView(
             demoDataEntities = listOf(
                 DemoEntity(1, "Example Data 1"),
@@ -305,7 +301,7 @@ private fun RoomDemoViewPreview() {
 @Preview(showBackground = true)
 @Composable
 private fun RoomDemoDataRowPreview() {
-    ExampleTheme {
+    AppTheme {
         RoomDemoDataRow(
             demoEntity = DemoEntity(1, "Example Data"),
             modifier = Modifier.fillMaxWidth()

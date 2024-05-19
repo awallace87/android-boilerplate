@@ -23,7 +23,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import work.wander.example.proto.settings.ApplicationSettings
-import work.wander.example.ui.theme.ExampleTheme
+import work.wander.example.ui.theme.AppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -91,7 +91,7 @@ fun ApplicationSettingsView(
 @Preview
 @Composable
 private fun ApplicationSettingsViewPreview() {
-    ExampleTheme {
+    AppTheme {
         ApplicationSettingsView(
             applicationSettings = ApplicationSettings.getDefaultInstance(),
         )

@@ -22,7 +22,15 @@ workManager = "2.9.0"
 hiltWork = "1.2.0"
 okHttpBom = "4.12.0"
 okHttpMockWebServer = "4.12.0"
+moshi = "1.15.1"
+picasso = "2.8"
 truthAssert = "1.4.2"
+coilImage = "2.6.0"
+uiTextGoogleFonts = "1.6.7"
+accompanistPermissions = "0.23.1"
+
+# For Extended Material Icons
+materialIcons = "1.6.7"
 
 [libraries]
 # Core/Default
@@ -30,7 +38,6 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
@@ -41,6 +48,9 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-nav-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navCompose" }
+
+# Lifecycle
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 
 # Room
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
@@ -76,6 +86,27 @@ okhttp-bom = { group = "com.squareup.okhttp3", name = "okhttp-bom", version.ref 
 okhttp-core = { group = "com.squareup.okhttp3", name = "okhttp" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor" }
 okhttp-mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "okHttpMockWebServer" }
+
+# Moshi
+moshi-core = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
+moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
+
+# Picasso
+picasso = { group = "com.squareup.picasso", name = "picasso", version.ref = "picasso" }
+
+# Coil Image
+coil-core = { group = "io.coil-kt", name = "coil", version.ref = "coilImage" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilImage" }
+
+# Google Fonts
+androidx-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "uiTextGoogleFonts" }
+
+# Material Extended Icons
+material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "materialIcons" }
+
+# Accompanist Permissions
+accompanist-permissions = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accompanistPermissions" }
+
 
 # Truth Assert
 truth-assert = { group = "com.google.truth", name = "truth", version.ref = "truthAssert" }
