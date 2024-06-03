@@ -5,6 +5,8 @@ plugins {
     id("kotlin-kapt")
     alias(libs.plugins.daggerHiltAndroid)
     alias(libs.plugins.protoBufPlugin)
+    alias(libs.plugins.kotlinSerialization)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -25,12 +27,19 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
             isMinifyEnabled = false
+            isDebuggable = true
+        }
+
+        release {
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // TODO: Replace with proper signing config for distribution
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -57,6 +66,11 @@ android {
         generateStubs = true
         correctErrorTypes = true
     }
+    ksp {
+        arg("room.schemaLocation", "$projectDir/schemas")
+        // Added to resolve build error involving multiple TypeConverter declarations (https://github.com/google/ksp/issues/1700)
+        arg("room.generateKotlin", "true")
+    }
 }
 
 dependencies {
@@ -70,6 +84,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.nav.compose)
+
+    // Lifecycle
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.extensions)
 
     // Room
     implementation(libs.androidx.room.runtime)
@@ -102,15 +120,19 @@ dependencies {
     implementation(libs.hilt.work)
     androidTestImplementation(libs.androidx.work.testing)
 
+    // Kotlin Serialization
+    implementation(libs.kotlin.serialization.json)
+
     // OkHttp
     implementation(platform(libs.okhttp.bom))
     implementation(libs.okhttp.core)
     implementation(libs.okhttp.logging)
     testImplementation(libs.okhttp.mockwebserver)
 
-    // Moshi
-    implementation(libs.moshi.core)
-    implementation(libs.moshi.kotlin)
+    // Retrofit
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.serialization)
+    implementation(libs.retrofit.scalars)
 
     // Picasso
     implementation(libs.picasso)
@@ -128,6 +150,13 @@ dependencies {
     // Material Extended Icons
     implementation(libs.material.icons.extended)
 
+    // Adaptive Material 3
+    implementation(libs.androidx.material3.adaptive.navigation.suite.core)
+    implementation(libs.androidx.material3.adaptive.navigation.suite.android)
+    implementation(libs.androidx.material3.adaptive.core)
+    implementation(libs.androidx.material3.adaptive.android)
+    implementation(libs.androidx.material3.adaptive.navigation)
+
     // Testing Core
     testImplementation(libs.junit)
 
@@ -141,6 +170,12 @@ dependencies {
 
     // Truth
     testImplementation(libs.truth.assert)
+
+    // Mockk
+    testImplementation(libs.mockk)
+
+    // Coroutines Test
+    testImplementation(libs.kotlinx.coroutines.test)
 }
 
 protobuf {
