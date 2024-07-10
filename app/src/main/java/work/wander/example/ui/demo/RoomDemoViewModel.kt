@@ -9,14 +9,14 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import work.wander.example.data.roomdemo.RoomDemoDataRepository
 import work.wander.example.data.roomdemo.entity.DemoEntity
-import work.wander.example.framework.logging.ExampleLogger
+import work.wander.example.framework.logging.AppLogger
 import java.time.Duration
 import javax.inject.Inject
 
 @HiltViewModel
 class RoomDemoViewModel @Inject constructor(
     private val roomDemoRepository: RoomDemoDataRepository,
-    private val exampleLogger: ExampleLogger,
+    private val appLogger: AppLogger,
 ) : ViewModel() {
 
     private val _entities = roomDemoRepository.getAll()
@@ -48,7 +48,7 @@ class RoomDemoViewModel @Inject constructor(
             if (entity != null) {
                 roomDemoRepository.deleteData(entity)
             } else {
-                exampleLogger.error("Entity with id $entityId not found for deletion.")
+                appLogger.error("Entity with id $entityId not found for deletion.")
             }
         }
     }
